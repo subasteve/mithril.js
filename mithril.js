@@ -492,7 +492,12 @@ Mithril = m = new function app(window, undefined) {
 	function redraw() {
 		var mode = m.redraw.strategy()
 		for (var i = 0; i < roots.length; i++) {
-			if (controllers[i] && mode != "none") m.render(roots[i], modules[i].view(controllers[i]), mode == "all")
+			if (controllers[i] && mode != "none"){ 
+				m.render(roots[i], modules[i].view(controllers[i]), mode == "all");
+				if(modules[i].process){
+					modules[i].process(controllers[i]);
+				}
+			}
 		}
 		//after rendering within a routed context, we need to scroll back to the top, and fetch the document title for history.pushState
 		if (computePostRedrawHook) {

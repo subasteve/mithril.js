@@ -1,6 +1,6 @@
 {
   "name": "mithril",
-  "version": "0.1.221",
+  "version": "0.1.222",
   "main": "mithril.js",
   "scripts": [
     "mithril.js"
